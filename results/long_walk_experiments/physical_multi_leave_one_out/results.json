@@ -1,0 +1,88 @@
+{
+  "config": {
+    "systems": [
+      "duffing",
+      "langevin",
+      "sextic",
+      "smooth_biquadratic"
+    ],
+    "held_out": [
+      "duffing",
+      "langevin",
+      "sextic",
+      "smooth_biquadratic"
+    ],
+    "train_trajectories": 32,
+    "test_trajectories": 12,
+    "trajectory_steps": 600,
+    "dt": 0.03,
+    "washout": 100,
+    "forecast_steps": 300,
+    "units": 96,
+    "ridge": 1e-05,
+    "seed": 0,
+    "normalization": "x / well_location, velocity / velocity_scale"
+  },
+  "folds": [
+    {
+      "held_out": "duffing",
+      "held_out_label": "Quartic Duffing",
+      "training_systems": [
+        "langevin",
+        "sextic",
+        "smooth_biquadratic"
+      ],
+      "model_path": "results/long_walk_experiments/physical_multi_leave_one_out/without_duffing.pkl",
+      "one_step_rmse_x": 0.0001878912615429082,
+      "one_step_rmse_v": 0.0059761237026799245,
+      "free_run_rmse_x": 0.6224774742642917,
+      "free_run_rmse_v": 0.31368881285221334,
+      "free_run_horizon": 300
+    },
+    {
+      "held_out": "langevin",
+      "held_out_label": "Noisy Duffing / Langevin",
+      "training_systems": [
+        "duffing",
+        "sextic",
+        "smooth_biquadratic"
+      ],
+      "model_path": "results/long_walk_experiments/physical_multi_leave_one_out/without_langevin.pkl",
+      "one_step_rmse_x": 0.00017531320298024472,
+      "one_step_rmse_v": 0.014954362070881057,
+      "free_run_rmse_x": 0.42381577991833314,
+      "free_run_rmse_v": 0.323376578348221,
+      "free_run_horizon": 300
+    },
+    {
+      "held_out": "sextic",
+      "held_out_label": "Sextic potential",
+      "training_systems": [
+        "duffing",
+        "langevin",
+        "smooth_biquadratic"
+      ],
+      "model_path": "results/long_walk_experiments/physical_multi_leave_one_out/without_sextic.pkl",
+      "one_step_rmse_x": 0.00025047801585612045,
+      "one_step_rmse_v": 0.008622191978093982,
+      "free_run_rmse_x": 0.5674938523676843,
+      "free_run_rmse_v": 0.34098379726587985,
+      "free_run_horizon": 300
+    },
+    {
+      "held_out": "smooth_biquadratic",
+      "held_out_label": "Smooth biquadratic",
+      "training_systems": [
+        "duffing",
+        "langevin",
+        "sextic"
+      ],
+      "model_path": "results/long_walk_experiments/physical_multi_leave_one_out/without_smooth_biquadratic.pkl",
+      "one_step_rmse_x": 0.0006029031044619117,
+      "one_step_rmse_v": 0.02623637745732579,
+      "free_run_rmse_x": 0.8907361994474421,
+      "free_run_rmse_v": 0.45707178292370904,
+      "free_run_horizon": 300
+    }
+  ]
+}

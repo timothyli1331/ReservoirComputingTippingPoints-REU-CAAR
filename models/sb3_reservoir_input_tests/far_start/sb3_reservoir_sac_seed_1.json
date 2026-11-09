@@ -1,0 +1,26 @@
+{
+  "condition": {
+    "name": "far_start",
+    "boundary_start_probability": 0.15,
+    "parameter_walk_scale": 1.0,
+    "include_local_acceleration": true,
+    "include_local_stretching": true,
+    "dynamics_substeps": 1,
+    "description": "85% of resets begin away from the boundary"
+  },
+  "seed": 1,
+  "timesteps": 200000,
+  "algorithm": "stable_baselines3.SAC",
+  "policy": "MlpPolicy",
+  "policy_input": "raw_observation_plus_reservoir_state",
+  "reservoir_units": 100,
+  "spectral_radius": 0.9,
+  "leaking_rate": 0.3,
+  "input_scaling": 0.5,
+  "reservoir_input": "tanh(raw_observation)",
+  "reservoir_seed": 1,
+  "action_limit": 0.05,
+  "buffer_size": 100000,
+  "learning_starts": 1000,
+  "batch_size": 256
+}

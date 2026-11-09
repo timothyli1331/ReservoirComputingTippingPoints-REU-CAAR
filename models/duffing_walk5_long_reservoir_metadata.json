@@ -1,0 +1,32 @@
+{
+  "generations": 80,
+  "population": 32,
+  "episodes_per_candidate": 2,
+  "reservoir_units": 75,
+  "elite_fraction": 0.2,
+  "initial_search_std": 0.15,
+  "minimum_search_std": 0.001,
+  "search_std_decay": 0.95,
+  "cem_smoothing": 0.2,
+  "mirrored_sampling": true,
+  "validation_episodes": 8,
+  "validation_interval": 1,
+  "early_stopping_patience": 20,
+  "completed_generations": 27,
+  "best_validation_return": 106.76895776917547,
+  "parameter_walk": true,
+  "parameter_walk_interval_steps": 5,
+  "evolve_dynamics": true,
+  "use_basin_mixing": true,
+  "boundary_update_interval": 3,
+  "boundary_resolution": 41,
+  "observation": [
+    "x",
+    "velocity",
+    "sin_forcing_phase",
+    "cos_forcing_phase",
+    "local_acceleration",
+    "local_stretching_rate"
+  ],
+  "seed": 105
+}

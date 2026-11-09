@@ -1,0 +1,22 @@
+Matplotlib is building the font cache; this may take a moment.
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+Saved comparison plot to ./results/overnight_memory_tests/high_drift/sac_vs_persistent_seed_0.png
+Saved episode-level results to ./results/overnight_memory_tests/high_drift/sac_vs_persistent_seed_0.csv
+Evaluation mode: dynamics=on, metric=finite-time boundary score, parameter walk=every 1 steps
+
+Quartic Duffing
+  SAC        return= 319.858, finite-time boundary score=0.0040
+  Reservoir-SAC return= 318.732, finite-time boundary score=0.0074
+
+Noisy Duffing / Langevin
+  SAC        return= 299.429, finite-time boundary score=0.0707
+  Reservoir-SAC return= 298.124, finite-time boundary score=0.0749
+
+Sextic potential
+  SAC        return= 318.941, finite-time boundary score=0.0056
+  Reservoir-SAC return= 317.946, finite-time boundary score=0.0087
+
+Smooth biquadratic
+  SAC        return= 317.805, finite-time boundary score=0.0093
+  Reservoir-SAC return= 318.467, finite-time boundary score=0.0064

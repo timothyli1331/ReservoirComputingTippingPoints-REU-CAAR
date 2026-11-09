@@ -1,0 +1,21 @@
+{
+  "generations": 80,
+  "population": 32,
+  "episodes_per_candidate": 2,
+  "reservoir_units": 75,
+  "parameter_walk": true,
+  "parameter_walk_interval_steps": 1,
+  "evolve_dynamics": true,
+  "use_basin_mixing": true,
+  "boundary_update_interval": 3,
+  "boundary_resolution": 41,
+  "observation": [
+    "x",
+    "velocity",
+    "sin_forcing_phase",
+    "cos_forcing_phase",
+    "local_acceleration",
+    "local_stretching_rate"
+  ],
+  "seed": 101
+}

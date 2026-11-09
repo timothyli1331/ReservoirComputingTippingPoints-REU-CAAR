@@ -1,0 +1,87 @@
+{
+  "created_by": "run_sb3_reservoir_input_overnight.py",
+  "timesteps": 200000,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "episodes": 20,
+  "controllers": [
+    "lstm",
+    "esn"
+  ],
+  "retrain_baseline": false,
+  "baseline_root": "./models/overnight_memory_tests",
+  "model_root": "./models/sb3_reservoir_input_tests",
+  "result_root": "./results/recurrent_controller_tests_latest",
+  "conditions": [
+    {
+      "name": "far_start",
+      "boundary_start_probability": 0.15,
+      "parameter_walk_scale": 1.0,
+      "include_local_acceleration": true,
+      "include_local_stretching": true,
+      "dynamics_substeps": 1,
+      "description": "85% of resets begin away from the boundary"
+    },
+    {
+      "name": "high_drift",
+      "boundary_start_probability": 0.6,
+      "parameter_walk_scale": 4.0,
+      "include_local_acceleration": true,
+      "include_local_stretching": true,
+      "dynamics_substeps": 1,
+      "description": "four-times-larger parameter random-walk increments"
+    },
+    {
+      "name": "no_stretch",
+      "boundary_start_probability": 0.6,
+      "parameter_walk_scale": 1.0,
+      "include_local_acceleration": true,
+      "include_local_stretching": false,
+      "dynamics_substeps": 1,
+      "description": "local stretching rate removed from observations"
+    },
+    {
+      "name": "no_accel_no_stretch",
+      "boundary_start_probability": 0.6,
+      "parameter_walk_scale": 1.0,
+      "include_local_acceleration": false,
+      "include_local_stretching": false,
+      "dynamics_substeps": 1,
+      "description": "observations contain only normalized position and velocity"
+    }
+  ],
+  "reservoir": {
+    "units": 100,
+    "spectral_radius": 0.9,
+    "leaking_rate": 0.3,
+    "input_scaling": 0.5,
+    "input": "tanh(raw_observation)",
+    "output_to_sac": "raw_observation_plus_reservoir_state"
+  },
+  "sac": {
+    "baseline_implementation": "stable_baselines3.SAC",
+    "sb3_reservoir_policy": "MlpPolicy",
+    "buffer_size": 100000,
+    "learning_starts": 1000,
+    "batch_size": 256,
+    "sequence_batch_size": 32,
+    "burn_in": 8,
+    "sequence_length": 16,
+    "gradient_steps_per_transition": 1.0,
+    "matched_recurrent_heads": {
+      "actor_hidden_sizes": [
+        128
+      ],
+      "critic_hidden_sizes": [
+        128,
+        128
+      ]
+    },
+    "device": "cpu"
+  }
+}

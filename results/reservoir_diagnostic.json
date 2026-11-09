@@ -1,0 +1,173 @@
+{
+  "interrupted": false,
+  "configuration": {
+    "systems": [
+      "duffing",
+      "langevin",
+      "sextic",
+      "smooth_biquadratic"
+    ],
+    "generations": 5,
+    "population": 8,
+    "episodes_per_candidate": 4,
+    "validation_episodes": 8,
+    "evaluation_episodes": 2,
+    "max_steps": 80,
+    "reservoir_units": 16,
+    "reservoir_backend": "reservoirpy",
+    "initial_search_std": 0.04,
+    "minimum_search_std": 0.002,
+    "maximum_search_std": 0.06,
+    "seed": 0
+  },
+  "candidate_stability": {
+    "rank_correlation": 0.023809523809523815,
+    "same_winner": false,
+    "training_winner": 5,
+    "fresh_winner": 3,
+    "training_scores": [
+      12.150512108998988,
+      18.976694427887015,
+      8.795022608435723,
+      15.406926812997035,
+      16.364081685214025,
+      19.558341491170847,
+      13.039679751222247,
+      13.292041837725806
+    ],
+    "fresh_scores": [
+      21.677655480634627,
+      16.39599424363802,
+      6.862271928947425,
+      24.281439851193145,
+      3.9832475917429027,
+      10.266766200493457,
+      12.087708053809028,
+      8.189793183537052
+    ],
+    "winner_fresh_regret": 14.014673650699688
+  },
+  "baseline": {
+    "duffing": {
+      "return": 8.482405227217523,
+      "boundary_proximity": 0.05,
+      "action_rms": 0.028824662298998403,
+      "action_saturation": 0.0,
+      "steps": 80.0,
+      "terminated": 0.0,
+      "return_std": 4.7479420170414475
+    },
+    "langevin": {
+      "return": 20.458457301216054,
+      "boundary_proximity": 0.20642361111111115,
+      "action_rms": 0.027188655426294776,
+      "action_saturation": 0.0,
+      "steps": 80.0,
+      "terminated": 0.0,
+      "return_std": 17.487043721048185
+    },
+    "sextic": {
+      "return": 14.928098887792796,
+      "boundary_proximity": 0.12222222222222223,
+      "action_rms": 0.048726431892257366,
+      "action_saturation": 0.0,
+      "steps": 80.0,
+      "terminated": 0.0,
+      "return_std": 0.8218612746734371
+    },
+    "smooth_biquadratic": {
+      "return": 24.20980113972592,
+      "boundary_proximity": 0.26736111111111105,
+      "action_rms": 0.027448101059198343,
+      "action_saturation": 0.0,
+      "steps": 80.0,
+      "terminated": 0.0,
+      "return_std": 23.205686505635505
+    }
+  },
+  "trained": {
+    "duffing": {
+      "return": 24.65399347116501,
+      "boundary_proximity": 0.2444444444444444,
+      "action_rms": 0.025380142853373817,
+      "action_saturation": 0.0,
+      "steps": 80.0,
+      "terminated": 0.0,
+      "return_std": 20.077804668597523
+    },
+    "langevin": {
+      "return": 5.241609694971749,
+      "boundary_proximity": 0.01718750000000001,
+      "action_rms": 0.03377459106684971,
+      "action_saturation": 0.0,
+      "steps": 80.0,
+      "terminated": 0.0,
+      "return_std": 2.2664045416811955
+    },
+    "sextic": {
+      "return": 37.319777131051815,
+      "boundary_proximity": 0.4,
+      "action_rms": 0.0378316120520361,
+      "action_saturation": 0.0,
+      "steps": 80.0,
+      "terminated": 0.0,
+      "return_std": 12.543313346003814
+    },
+    "smooth_biquadratic": {
+      "return": 12.52114181874935,
+      "boundary_proximity": 0.12152777777777776,
+      "action_rms": 0.041415606141912024,
+      "action_saturation": 0.0,
+      "steps": 80.0,
+      "terminated": 0.0,
+      "return_std": 11.5129368481468
+    }
+  },
+  "history": [
+    {
+      "generation": 1.0,
+      "best_return": 31.195325460119328,
+      "mean_return": 21.835009602137742,
+      "search_std": 0.039727850953422794,
+      "validation_return": 6.907703811367586,
+      "best_validation_return": 6.907703811367586
+    },
+    {
+      "generation": 2.0,
+      "best_return": 12.094057269107022,
+      "mean_return": 6.845729219772565,
+      "search_std": 0.03990467638979377,
+      "validation_return": 8.202397012068399,
+      "best_validation_return": 8.202397012068399
+    },
+    {
+      "generation": 3.0,
+      "best_return": 27.58537061480538,
+      "mean_return": 20.31721069933351,
+      "search_std": 0.041674466843289446,
+      "validation_return": 8.202397012068399,
+      "best_validation_return": 8.202397012068399
+    },
+    {
+      "generation": 4.0,
+      "best_return": 19.20564593562979,
+      "mean_return": 14.684083833525685,
+      "search_std": 0.04132143341473427,
+      "validation_return": 14.79202394038033,
+      "best_validation_return": 14.79202394038033
+    },
+    {
+      "generation": 5.0,
+      "best_return": 19.707950299158366,
+      "mean_return": 8.343772251183918,
+      "search_std": 0.040824694229322056,
+      "validation_return": 7.240988279924254,
+      "best_validation_return": 14.79202394038033
+    }
+  ],
+  "findings": [
+    "Candidate ranking is unstable across seeds; CEM is mostly selecting rollout noise.",
+    "No held-out improvement for: langevin, smooth_biquadratic."
+  ],
+  "checkpoint_path": "models/reservoir_diagnostic_best.pkl"
+}

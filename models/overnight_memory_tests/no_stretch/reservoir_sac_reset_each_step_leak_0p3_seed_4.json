@@ -1,0 +1,731 @@
+{
+  "interrupted": false,
+  "completed_timesteps": 200000,
+  "completed_episodes": 666,
+  "best_balanced_score": 304.5354420594607,
+  "best_model": "./models/overnight_memory_tests/no_stretch/reservoir_sac_reset_each_step_leak_0p3_seed_4.pt",
+  "latest_model": "./models/overnight_memory_tests/no_stretch/reservoir_sac_reset_each_step_leak_0p3_seed_4_latest.pt",
+  "history": [
+    {
+      "step": 10000,
+      "mean_return": 277.6617583103536,
+      "return_std": 66.34724337637238,
+      "worst_system_return": 246.37797896358651,
+      "system_return_std": 21.475096908292162,
+      "robust_score": 266.9242098562076,
+      "per_system": {
+        "duffing": {
+          "return": 246.37797896358651,
+          "return_std": 114.72279749380193,
+          "boundary_proximity": 0.754148148148148,
+          "action_saturation": 0.20366666666666666
+        },
+        "langevin": {
+          "return": 272.0077844914455,
+          "return_std": 37.40202343796122,
+          "boundary_proximity": 0.8385740740740741,
+          "action_saturation": 0.04666666666666667
+        },
+        "sextic": {
+          "return": 287.41633416806513,
+          "return_std": 32.140119948120095,
+          "boundary_proximity": 0.8907407407407406,
+          "action_saturation": 0.039999999999999994
+        },
+        "smooth_biquadratic": {
+          "return": 304.84493561831744,
+          "return_std": 13.034137230939528,
+          "boundary_proximity": 0.9508888888888889,
+          "action_saturation": 0.0003333333333333334
+        }
+      }
+    },
+    {
+      "step": 20000,
+      "mean_return": 305.1929570974145,
+      "return_std": 11.538280029154318,
+      "worst_system_return": 291.57429343826436,
+      "system_return_std": 7.9592195779211155,
+      "robust_score": 301.213347308454,
+      "per_system": {
+        "duffing": {
+          "return": 311.52762628857846,
+          "return_std": 4.735530636925008,
+          "boundary_proximity": 0.9692592592592593,
+          "action_saturation": 0.007333333333333333
+        },
+        "langevin": {
+          "return": 291.57429343826436,
+          "return_std": 10.978232286281623,
+          "boundary_proximity": 0.9032037037037037,
+          "action_saturation": 0.0036666666666666666
+        },
+        "sextic": {
+          "return": 309.6325707275797,
+          "return_std": 6.087077208877511,
+          "boundary_proximity": 0.9644444444444444,
+          "action_saturation": 0.006
+        },
+        "smooth_biquadratic": {
+          "return": 308.0373379352356,
+          "return_std": 9.956484092029052,
+          "boundary_proximity": 0.962,
+          "action_saturation": 0.01566666666666667
+        }
+      }
+    },
+    {
+      "step": 30000,
+      "mean_return": 305.7929969022588,
+      "return_std": 10.73783513749772,
+      "worst_system_return": 293.06715885453116,
+      "system_return_std": 7.428921832979013,
+      "robust_score": 302.0785359857693,
+      "per_system": {
+        "duffing": {
+          "return": 311.72062109085084,
+          "return_std": 4.310007544136221,
+          "boundary_proximity": 0.97,
+          "action_saturation": 0.009333333333333334
+        },
+        "langevin": {
+          "return": 293.06715885453116,
+          "return_std": 10.044096966162414,
+          "boundary_proximity": 0.9082962962962963,
+          "action_saturation": 0.004666666666666667
+        },
+        "sextic": {
+          "return": 309.72313115061723,
+          "return_std": 5.732626641240619,
+          "boundary_proximity": 0.9648148148148149,
+          "action_saturation": 0.007333333333333333
+        },
+        "smooth_biquadratic": {
+          "return": 308.6610765130359,
+          "return_std": 9.387536325054997,
+          "boundary_proximity": 0.9642222222222223,
+          "action_saturation": 0.017333333333333333
+        }
+      }
+    },
+    {
+      "step": 40000,
+      "mean_return": 306.80223502842415,
+      "return_std": 9.378145134443697,
+      "worst_system_return": 295.39846318436946,
+      "system_return_std": 6.629177886903882,
+      "robust_score": 303.48764608497214,
+      "per_system": {
+        "duffing": {
+          "return": 311.69939444027284,
+          "return_std": 4.318806732946042,
+          "boundary_proximity": 0.97,
+          "action_saturation": 0.010333333333333335
+        },
+        "langevin": {
+          "return": 295.39846318436946,
+          "return_std": 7.89241382154274,
+          "boundary_proximity": 0.9161666666666667,
+          "action_saturation": 0.004666666666666667
+        },
+        "sextic": {
+          "return": 310.59767249112747,
+          "return_std": 5.089684609288266,
+          "boundary_proximity": 0.9677777777777777,
+          "action_saturation": 0.009
+        },
+        "smooth_biquadratic": {
+          "return": 309.5134099979267,
+          "return_std": 8.316685029316291,
+          "boundary_proximity": 0.9671851851851851,
+          "action_saturation": 0.018333333333333333
+        }
+      }
+    },
+    {
+      "step": 50000,
+      "mean_return": 307.177574363684,
+      "return_std": 9.266183912479471,
+      "worst_system_return": 295.33394131093155,
+      "system_return_std": 6.8788454733048106,
+      "robust_score": 303.7381516270316,
+      "per_system": {
+        "duffing": {
+          "return": 311.78277614489514,
+          "return_std": 4.455485603625134,
+          "boundary_proximity": 0.9703703703703704,
+          "action_saturation": 0.013000000000000001
+        },
+        "langevin": {
+          "return": 295.33394131093155,
+          "return_std": 7.684962936163254,
+          "boundary_proximity": 0.9160740740740743,
+          "action_saturation": 0.005333333333333333
+        },
+        "sextic": {
+          "return": 311.69040323013394,
+          "return_std": 3.921567417694507,
+          "boundary_proximity": 0.9714814814814815,
+          "action_saturation": 0.010333333333333333
+        },
+        "smooth_biquadratic": {
+          "return": 309.9031767687754,
+          "return_std": 7.738597980985451,
+          "boundary_proximity": 0.9686666666666668,
+          "action_saturation": 0.019
+        }
+      }
+    },
+    {
+      "step": 60000,
+      "mean_return": 307.4424051598503,
+      "return_std": 8.85141230735401,
+      "worst_system_return": 296.3144151959863,
+      "system_return_std": 6.465267562909083,
+      "robust_score": 304.2097713783957,
+      "per_system": {
+        "duffing": {
+          "return": 311.79393262426845,
+          "return_std": 4.457895096769716,
+          "boundary_proximity": 0.9703703703703704,
+          "action_saturation": 0.014666666666666666
+        },
+        "langevin": {
+          "return": 296.3144151959863,
+          "return_std": 7.134244250764756,
+          "boundary_proximity": 0.9193518518518518,
+          "action_saturation": 0.005333333333333333
+        },
+        "sextic": {
+          "return": 311.68812248158184,
+          "return_std": 3.924401123047355,
+          "boundary_proximity": 0.9714814814814815,
+          "action_saturation": 0.011000000000000001
+        },
+        "smooth_biquadratic": {
+          "return": 309.97315033756445,
+          "return_std": 7.7472618905744435,
+          "boundary_proximity": 0.9686666666666668,
+          "action_saturation": 0.019666666666666666
+        }
+      }
+    },
+    {
+      "step": 70000,
+      "mean_return": 307.0463772534405,
+      "return_std": 9.391652339460833,
+      "worst_system_return": 294.9473203237202,
+      "system_return_std": 7.018652417360564,
+      "robust_score": 303.53705104476023,
+      "per_system": {
+        "duffing": {
+          "return": 311.7921636738412,
+          "return_std": 4.461614009261175,
+          "boundary_proximity": 0.9703703703703704,
+          "action_saturation": 0.015333333333333334
+        },
+        "langevin": {
+          "return": 294.9473203237202,
+          "return_std": 7.8969984677200795,
+          "boundary_proximity": 0.9148333333333334,
+          "action_saturation": 0.005333333333333333
+        },
+        "sextic": {
+          "return": 311.464957955757,
+          "return_std": 3.6676194023187056,
+          "boundary_proximity": 0.9707407407407407,
+          "action_saturation": 0.011333333333333334
+        },
+        "smooth_biquadratic": {
+          "return": 309.9810670604438,
+          "return_std": 7.7489735572682745,
+          "boundary_proximity": 0.9686666666666668,
+          "action_saturation": 0.02
+        }
+      }
+    },
+    {
+      "step": 80000,
+      "mean_return": 307.4532888470187,
+      "return_std": 8.889367437973752,
+      "worst_system_return": 296.050228636044,
+      "system_return_std": 6.624948709041364,
+      "robust_score": 304.140814492498,
+      "per_system": {
+        "duffing": {
+          "return": 311.9157908026718,
+          "return_std": 4.312213840360434,
+          "boundary_proximity": 0.9707407407407407,
+          "action_saturation": 0.016666666666666666
+        },
+        "langevin": {
+          "return": 296.050228636044,
+          "return_std": 6.824305210382579,
+          "boundary_proximity": 0.9184999999999999,
+          "action_saturation": 0.005666666666666667
+        },
+        "sextic": {
+          "return": 311.798325444678,
+          "return_std": 3.9048564745997534,
+          "boundary_proximity": 0.9718518518518519,
+          "action_saturation": 0.013000000000000001
+        },
+        "smooth_biquadratic": {
+          "return": 310.048810504681,
+          "return_std": 7.753025106553043,
+          "boundary_proximity": 0.9686666666666668,
+          "action_saturation": 0.020666666666666667
+        }
+      }
+    },
+    {
+      "step": 90000,
+      "mean_return": 307.3455654046609,
+      "return_std": 9.031164337738998,
+      "worst_system_return": 295.71789514578927,
+      "system_return_std": 6.756081723635225,
+      "robust_score": 303.96752454284325,
+      "per_system": {
+        "duffing": {
+          "return": 311.8934275953355,
+          "return_std": 4.313954962165029,
+          "boundary_proximity": 0.9707407407407407,
+          "action_saturation": 0.016666666666666666
+        },
+        "langevin": {
+          "return": 295.71789514578927,
+          "return_std": 7.0531234962125,
+          "boundary_proximity": 0.9174814814814816,
+          "action_saturation": 0.005666666666666667
+        },
+        "sextic": {
+          "return": 311.7885070155198,
+          "return_std": 3.9061490334688744,
+          "boundary_proximity": 0.9718518518518519,
+          "action_saturation": 0.013333333333333332
+        },
+        "smooth_biquadratic": {
+          "return": 309.982431861999,
+          "return_std": 7.7494772349598415,
+          "boundary_proximity": 0.9686666666666668,
+          "action_saturation": 0.020666666666666667
+        }
+      }
+    },
+    {
+      "step": 100000,
+      "mean_return": 307.17881704225937,
+      "return_std": 8.939034464486484,
+      "worst_system_return": 295.8414982123988,
+      "system_return_std": 6.568967040798018,
+      "robust_score": 303.8943335218603,
+      "per_system": {
+        "duffing": {
+          "return": 311.35789269345145,
+          "return_std": 4.83476695621863,
+          "boundary_proximity": 0.968888888888889,
+          "action_saturation": 0.017333333333333333
+        },
+        "langevin": {
+          "return": 295.8414982123988,
+          "return_std": 7.073798102650409,
+          "boundary_proximity": 0.9178518518518519,
+          "action_saturation": 0.006
+        },
+        "sextic": {
+          "return": 311.45994207944455,
+          "return_std": 3.6680230468113004,
+          "boundary_proximity": 0.9707407407407407,
+          "action_saturation": 0.015000000000000003
+        },
+        "smooth_biquadratic": {
+          "return": 310.05593518374246,
+          "return_std": 7.755775429111121,
+          "boundary_proximity": 0.9686666666666668,
+          "action_saturation": 0.020666666666666667
+        }
+      }
+    },
+    {
+      "step": 110000,
+      "mean_return": 307.2024098322142,
+      "return_std": 8.958192823398738,
+      "worst_system_return": 295.79746952963023,
+      "system_return_std": 6.6084712506093535,
+      "robust_score": 303.8981742069095,
+      "per_system": {
+        "duffing": {
+          "return": 311.4702802985336,
+          "return_std": 4.833376156986985,
+          "boundary_proximity": 0.9692592592592593,
+          "action_saturation": 0.018333333333333333
+        },
+        "langevin": {
+          "return": 295.79746952963023,
+          "return_std": 7.018482170972632,
+          "boundary_proximity": 0.9177962962962963,
+          "action_saturation": 0.006666666666666666
+        },
+        "sextic": {
+          "return": 311.45333193291873,
+          "return_std": 3.670820462230145,
+          "boundary_proximity": 0.9707407407407407,
+          "action_saturation": 0.016666666666666666
+        },
+        "smooth_biquadratic": {
+          "return": 310.0885575677741,
+          "return_std": 7.759752936732623,
+          "boundary_proximity": 0.9686666666666668,
+          "action_saturation": 0.020666666666666667
+        }
+      }
+    },
+    {
+      "step": 120000,
+      "mean_return": 307.6775651241174,
+      "return_std": 8.825704881605144,
+      "worst_system_return": 296.07172935492747,
+      "system_return_std": 6.755492866447067,
+      "robust_score": 304.2998186908938,
+      "per_system": {
+        "duffing": {
+          "return": 312.1385412650643,
+          "return_std": 4.41907007081804,
+          "boundary_proximity": 0.9714814814814815,
+          "action_saturation": 0.013333333333333332
+        },
+        "langevin": {
+          "return": 296.07172935492747,
+          "return_std": 5.973946286837807,
+          "boundary_proximity": 0.9188148148148148,
+          "action_saturation": 0.004666666666666667
+        },
+        "sextic": {
+          "return": 312.3514698333942,
+          "return_std": 4.017824500176676,
+          "boundary_proximity": 0.9737037037037037,
+          "action_saturation": 0.012666666666666668
+        },
+        "smooth_biquadratic": {
+          "return": 310.1485200430835,
+          "return_std": 7.593839800209286,
+          "boundary_proximity": 0.969037037037037,
+          "action_saturation": 0.02
+        }
+      }
+    },
+    {
+      "step": 130000,
+      "mean_return": 307.9060323667352,
+      "return_std": 8.809080534797442,
+      "worst_system_return": 296.3448251652902,
+      "system_return_std": 6.74118061454901,
+      "robust_score": 304.5354420594607,
+      "per_system": {
+        "duffing": {
+          "return": 312.5963153396548,
+          "return_std": 4.16273153196687,
+          "boundary_proximity": 0.9729629629629629,
+          "action_saturation": 0.015
+        },
+        "langevin": {
+          "return": 296.3448251652902,
+          "return_std": 6.064610501683687,
+          "boundary_proximity": 0.9197407407407407,
+          "action_saturation": 0.005666666666666667
+        },
+        "sextic": {
+          "return": 312.4615387020032,
+          "return_std": 4.097847334037263,
+          "boundary_proximity": 0.9740740740740741,
+          "action_saturation": 0.014333333333333333
+        },
+        "smooth_biquadratic": {
+          "return": 310.2214502599924,
+          "return_std": 7.597719924086615,
+          "boundary_proximity": 0.969037037037037,
+          "action_saturation": 0.020333333333333335
+        }
+      }
+    },
+    {
+      "step": 140000,
+      "mean_return": 307.7443049726566,
+      "return_std": 9.170648471216724,
+      "worst_system_return": 295.6966095324225,
+      "system_return_std": 7.019305337383537,
+      "robust_score": 304.2346523039649,
+      "per_system": {
+        "duffing": {
+          "return": 312.59662285438947,
+          "return_std": 4.162717818901923,
+          "boundary_proximity": 0.9729629629629629,
+          "action_saturation": 0.015000000000000003
+        },
+        "langevin": {
+          "return": 295.6966095324225,
+          "return_std": 6.889271755470977,
+          "boundary_proximity": 0.9176111111111112,
+          "action_saturation": 0.005666666666666667
+        },
+        "sextic": {
+          "return": 312.46090088097765,
+          "return_std": 4.098566365069509,
+          "boundary_proximity": 0.9740740740740741,
+          "action_saturation": 0.014000000000000002
+        },
+        "smooth_biquadratic": {
+          "return": 310.22308662283695,
+          "return_std": 7.598161135657923,
+          "boundary_proximity": 0.969037037037037,
+          "action_saturation": 0.020333333333333335
+        }
+      }
+    },
+    {
+      "step": 150000,
+      "mean_return": 307.7368566101486,
+      "return_std": 8.985639662901857,
+      "worst_system_return": 295.9531216311398,
+      "system_return_std": 6.872017356079297,
+      "robust_score": 304.3008479321091,
+      "per_system": {
+        "duffing": {
+          "return": 312.46504352931,
+          "return_std": 4.195314806706031,
+          "boundary_proximity": 0.9725925925925927,
+          "action_saturation": 0.017666666666666667
+        },
+        "langevin": {
+          "return": 295.9531216311398,
+          "return_std": 6.280091622778559,
+          "boundary_proximity": 0.9185370370370372,
+          "action_saturation": 0.007000000000000001
+        },
+        "sextic": {
+          "return": 312.4469904327256,
+          "return_std": 4.09663198269183,
+          "boundary_proximity": 0.9740740740740741,
+          "action_saturation": 0.016000000000000004
+        },
+        "smooth_biquadratic": {
+          "return": 310.0822708474194,
+          "return_std": 7.761815491079775,
+          "boundary_proximity": 0.9686666666666668,
+          "action_saturation": 0.020333333333333335
+        }
+      }
+    },
+    {
+      "step": 160000,
+      "mean_return": 307.3683512619294,
+      "return_std": 8.949182736921525,
+      "worst_system_return": 295.56584313010273,
+      "system_return_std": 6.854128639847304,
+      "robust_score": 303.9412869420058,
+      "per_system": {
+        "duffing": {
+          "return": 312.0239195187473,
+          "return_std": 4.44077560264182,
+          "boundary_proximity": 0.9711111111111113,
+          "action_saturation": 0.018333333333333333
+        },
+        "langevin": {
+          "return": 295.56584313010273,
+          "return_std": 6.091645226871877,
+          "boundary_proximity": 0.9172407407407407,
+          "action_saturation": 0.007333333333333333
+        },
+        "sextic": {
+          "return": 311.7795051679088,
+          "return_std": 3.912572672787875,
+          "boundary_proximity": 0.9718518518518519,
+          "action_saturation": 0.01666666666666667
+        },
+        "smooth_biquadratic": {
+          "return": 310.1041372309588,
+          "return_std": 7.765198937955071,
+          "boundary_proximity": 0.9686666666666668,
+          "action_saturation": 0.020666666666666667
+        }
+      }
+    },
+    {
+      "step": 170000,
+      "mean_return": 307.315591963693,
+      "return_std": 8.627871656820563,
+      "worst_system_return": 296.0568041792667,
+      "system_return_std": 6.522769881283715,
+      "robust_score": 304.0542070230512,
+      "per_system": {
+        "duffing": {
+          "return": 311.5728708944825,
+          "return_std": 4.953905974661766,
+          "boundary_proximity": 0.9696296296296296,
+          "action_saturation": 0.018
+        },
+        "langevin": {
+          "return": 296.0568041792667,
+          "return_std": 5.638655029190553,
+          "boundary_proximity": 0.9189074074074075,
+          "action_saturation": 0.007000000000000001
+        },
+        "sextic": {
+          "return": 311.4451620684561,
+          "return_std": 3.674854983546545,
+          "boundary_proximity": 0.9707407407407407,
+          "action_saturation": 0.01633333333333333
+        },
+        "smooth_biquadratic": {
+          "return": 310.1875307125669,
+          "return_std": 7.598315307713914,
+          "boundary_proximity": 0.969037037037037,
+          "action_saturation": 0.020666666666666667
+        }
+      }
+    },
+    {
+      "step": 180000,
+      "mean_return": 307.3032772981572,
+      "return_std": 8.681697042694923,
+      "worst_system_return": 295.998303161482,
+      "system_return_std": 6.5492511033663625,
+      "robust_score": 304.02865174647394,
+      "per_system": {
+        "duffing": {
+          "return": 311.5760666573742,
+          "return_std": 4.952474604771471,
+          "boundary_proximity": 0.9696296296296296,
+          "action_saturation": 0.01666666666666667
+        },
+        "langevin": {
+          "return": 295.998303161482,
+          "return_std": 5.841305888073138,
+          "boundary_proximity": 0.9187222222222223,
+          "action_saturation": 0.007000000000000001
+        },
+        "sextic": {
+          "return": 311.4461788877173,
+          "return_std": 3.6762299682399924,
+          "boundary_proximity": 0.9707407407407407,
+          "action_saturation": 0.015333333333333332
+        },
+        "smooth_biquadratic": {
+          "return": 310.1925604860551,
+          "return_std": 7.599616315080562,
+          "boundary_proximity": 0.969037037037037,
+          "action_saturation": 0.020999999999999998
+        }
+      }
+    },
+    {
+      "step": 190000,
+      "mean_return": 307.29102653547426,
+      "return_std": 8.608745026054125,
+      "worst_system_return": 296.07373029545124,
+      "system_return_std": 6.496798472586032,
+      "robust_score": 304.04262729918116,
+      "per_system": {
+        "duffing": {
+          "return": 311.4604182459232,
+          "return_std": 4.834044780718107,
+          "boundary_proximity": 0.9692592592592593,
+          "action_saturation": 0.018000000000000002
+        },
+        "langevin": {
+          "return": 296.07373029545124,
+          "return_std": 5.74142702708399,
+          "boundary_proximity": 0.9189999999999999,
+          "action_saturation": 0.007333333333333333
+        },
+        "sextic": {
+          "return": 311.4416845817072,
+          "return_std": 3.6769819315461003,
+          "boundary_proximity": 0.9707407407407407,
+          "action_saturation": 0.01633333333333333
+        },
+        "smooth_biquadratic": {
+          "return": 310.1882730188152,
+          "return_std": 7.599752150341838,
+          "boundary_proximity": 0.969037037037037,
+          "action_saturation": 0.021333333333333333
+        }
+      }
+    },
+    {
+      "step": 200000,
+      "mean_return": 307.46874329495483,
+      "return_std": 8.714866405150255,
+      "worst_system_return": 296.125583426861,
+      "system_return_std": 6.583665622295955,
+      "robust_score": 304.1769104838068,
+      "per_system": {
+        "duffing": {
+          "return": 311.572824549434,
+          "return_std": 4.952422407262988,
+          "boundary_proximity": 0.9696296296296296,
+          "action_saturation": 0.017
+        },
+        "langevin": {
+          "return": 296.125583426861,
+          "return_std": 5.782752991891068,
+          "boundary_proximity": 0.9191851851851853,
+          "action_saturation": 0.006666666666666666
+        },
+        "sextic": {
+          "return": 312.00089527460284,
+          "return_std": 3.833955273321012,
+          "boundary_proximity": 0.9725925925925927,
+          "action_saturation": 0.015000000000000003
+        },
+        "smooth_biquadratic": {
+          "return": 310.1756699289213,
+          "return_std": 7.599410558105694,
+          "boundary_proximity": 0.969037037037037,
+          "action_saturation": 0.020666666666666667
+        }
+      }
+    }
+  ],
+  "configuration": {
+    "systems": [
+      "duffing",
+      "langevin",
+      "sextic",
+      "smooth_biquadratic"
+    ],
+    "max_steps": 300,
+    "boundary_start_probability": 0.6,
+    "include_system_id": false,
+    "include_local_stretching": false,
+    "evolve_dynamics": true,
+    "use_basin_mixing": true,
+    "parameter_walk": true,
+    "parameter_walk_interval": 1,
+    "parameter_walk_scale": 1.0,
+    "boundary_update_interval": 5,
+    "boundary_resolution": 41,
+    "reservoir_backend": "reservoirpy",
+    "reservoir_units": 100,
+    "memory_mode": "reset_each_step",
+    "spectral_radius": 0.9,
+    "leaking_rate": 0.3,
+    "input_scaling": 0.5,
+    "buffer_size": 100000,
+    "learning_starts": 2000,
+    "batch_size": 256,
+    "gradient_steps": 1,
+    "actor_learning_rate": 0.0003,
+    "critic_learning_rate": 0.0003,
+    "temperature_learning_rate": 0.0003,
+    "initial_temperature": 0.2,
+    "critic_hidden_sizes": [
+      128,
+      128
+    ],
+    "gamma": 0.99,
+    "tau": 0.005,
+    "balance_penalty": 0.5,
+    "seed": 4
+  }
+}

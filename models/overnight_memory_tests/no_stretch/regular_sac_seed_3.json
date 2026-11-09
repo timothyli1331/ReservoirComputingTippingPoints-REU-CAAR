@@ -1,0 +1,26 @@
+{
+  "algorithm": "sac",
+  "timesteps": 200000,
+  "systems": [
+    "duffing",
+    "langevin",
+    "sextic",
+    "smooth_biquadratic"
+  ],
+  "include_system_id": false,
+  "include_local_stretching": false,
+  "parameter_walk": true,
+  "parameter_walk_interval_steps": 1,
+  "parameter_walk_scale": 1.0,
+  "boundary_start_probability": 0.6,
+  "evolve_dynamics": true,
+  "use_basin_mixing": true,
+  "boundary_update_interval": 5,
+  "boundary_resolution": 41,
+  "observation": [
+    "normalized_x",
+    "normalized_velocity",
+    "normalized_local_acceleration"
+  ],
+  "seed": 3
+}

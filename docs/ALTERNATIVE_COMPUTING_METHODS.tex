@@ -1,0 +1,243 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\title{Reservoir, Analog, and Reversible Computing}
+\author{Timothy Li}
+\date{August 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Reservoir Computing}
+
+\subsection{Overview}
+
+Reservoir computing is a machine-learning method for working with data that changes over time. A reservoir computer has an input layer, a reservoir, and an output layer. The reservoir is usually a fixed network with nonlinear dynamics. Inputs are sent into this network, which turns them into a larger set of reservoir states. The output layer then uses these states to make a prediction or classification.
+\footnote{\url{https://doi.org/10.24406/publica-fhg-291111}}
+\footnote{\url{https://doi.org/10.1162/089976602760407955}}
+
+The main difference from a normal recurrent neural network is that the connections inside the reservoir are not trained. Only the output layer, also called the readout, is trained. The readout is commonly fitted using linear or ridge regression. This makes training much simpler because backpropagation does not have to be applied to all the recurrent connections.
+\footnote{\url{https://www.sciencedirect.com/science/article/pii/S0893608019300784}}
+
+Following Mujal et al., the basic reservoir update can be written as
+\footnote{\url{https://doi.org/10.1002/qute.202100027}}
+\begin{equation}
+    \mathbf{X}(t_i)
+    =
+    \mathbf{f}\!\left(\mathbf{X}(t_{i-1}),\mathbf{u}(t_i)\right),
+\end{equation}
+where $\mathbf{X}(t_i)$ is the reservoir state, $\mathbf{u}(t_i)$ is the current input, and $\mathbf{f}$ describes how the reservoir changes. In a physical reservoir, it may not be possible to measure every part of $\mathbf{X}(t)$. The part that can be measured is written as $\mathbf{x}(t)$. A simple readout is
+\footnote{\url{https://arxiv.org/abs/2412.13212}}
+\begin{equation}
+    \mathbf{y}(t)
+    =
+    \mathbf{W}_{\mathrm{out}}\mathbf{x}(t)
+    +
+    \mathbf{b}_{\mathrm{out}},
+\end{equation}
+where $\mathbf{W}_{\mathrm{out}}$ and $\mathbf{b}_{\mathrm{out}}$ are the trained weights and bias.
+
+Echo state networks are a common digital version of reservoir computing. Reservoirs can also be made from physical systems such as analog circuits,
+\footnote{\url{https://doi.org/10.1038/s41598-024-61880-z}}
+photonic systems,
+\footnote{\url{https://doi.org/10.1038/s41467-025-67983-z}}
+magnetic devices,
+\footnote{\url{https://doi.org/10.1126/sciadv.adr5262}}
+mechanical systems,
+\footnote{\url{https://doi.org/10.1038/srep10487}}
+and even fluids.
+\footnote{\url{https://doi.org/10.1007/978-3-540-39432-7_63}}
+Inputs can be represented by voltages, forces, positions, pulses, or waves, depending on the system. The response is measured and used as the reservoir state.
+
+If a system has only one physical node, it can still produce several \emph{virtual nodes} through time multiplexing. This means measuring the same node at several points in time and treating those measurements as different reservoir states.
+\footnote{\url{https://doi.org/10.1038/ncomms1476}}
+Reservoirs also have short-term, or fading, memory because their current state depends partly on earlier inputs.
+\footnote{\url{https://arxiv.org/abs/2412.13212}}
+
+\subsection{Killer Problem}
+
+Reservoir computing is useful for problems involving time and memory. Examples include time-series forecasting, signal classification, system identification, anomaly detection, and control. It can be much easier to train than a standard recurrent neural network because only the readout is trained.
+\footnote{\url{https://www.sciencedirect.com/science/article/pii/S0893608019300784}}
+
+Physical reservoir computing is especially interesting because a physical system can provide the nonlinear dynamics directly. This could reduce the cost of running a large recurrent network, especially if sensing and computing happen in the same device. However, whether it is actually faster or more energy efficient depends on the full system, including how data enter and leave the reservoir.
+\footnote{\url{https://www.sciencedirect.com/science/article/pii/S0893608019300784}}
+
+\subsection{Simulators}
+
+I looked at ReservoirPy, EchoTorch, and PRCpy. These tools do not all do the same thing.
+
+\paragraph{ReservoirPy.}
+ReservoirPy is the easiest tool I found for making a digital reservoir. It can create and train echo state networks using only a few lines of Python. It also includes tutorials, datasets, metrics, and tools for changing reservoir settings. This makes it a good starting point for testing reservoir computing and creating a digital baseline.
+\footnote{\url{https://doi.org/10.1007/978-3-030-61616-8_40}}
+\footnote{\url{https://reservoirpy.readthedocs.io/en/stable/user_guide/quickstart.html}}
+
+ReservoirPy simulates a digital recurrent reservoir. It does not simulate the physics of a particular physical reservoir unless the user writes that model separately.
+
+\paragraph{EchoTorch.}
+EchoTorch is a reservoir-computing extension of PyTorch. It adds ready-made PyTorch layers and tools for echo state networks, deep reservoirs, conceptors, datasets, and other research models. Because it is built on PyTorch, these reservoir layers can be combined with other PyTorch models and workflows.
+
+I found EchoTorch somewhat strange to set up in Google Colab. The following commands were a workaround that I used; the exact commands may need to change depending on the installed Python and PyTorch versions:
+\begin{verbatim}
+!pip install git+https://github.com/nschaetti/EchoTorch.git
+!pip uninstall -y echotorch torchvision torch
+!pip install torch torchvision
+\end{verbatim}
+The public PyPI release is still from 2018, so it does not fully represent the current GitHub code.
+\footnote{\url{https://pypi.org/project/EchoTorch/}}
+ReservoirPy may still be easier for a simple digital reservoir, while EchoTorch may be useful when PyTorch integration or its specialized research models are needed.
+
+\paragraph{PRCpy.}
+PRCpy is meant for processing data from a physical reservoir. It can load experimental data, prepare it, train a readout, and evaluate the results.
+\footnote{\url{https://github.com/OSJL-py/PRCpy}}
+It does not actually simulate the physical system. Normally, the user needs measurements from a real reservoir. Simulated data can also be used, but they must come from a separate simulator.
+
+\paragraph{SciPy and other simulators.}
+SciPy is not a reservoir-computing simulator by itself. However, its ODE solvers can simulate a dynamical system that is being used as a reservoir. The simulated positions, voltages, or other state variables can then be used as reservoir nodes. SciPy is also useful as a normal digital solver for comparing against analog or physical results.
+
+For most physical reservoirs, there is no special reservoir simulator. Instead, a simulator for that physical system is used. For example, an electronic reservoir can use SPICE, a mechanical reservoir can use an ODE or finite-element solver, and an optical or magnetic reservoir needs a simulator for those systems. The results are then passed into an RC readout.
+
+\subsection{Disadvantages}
+
+Reservoir computing still requires choosing settings such as reservoir size, connection strength, and memory. A poor choice can make the reservoir unstable or unable to remember enough information.
+\footnote{\url{https://www.sciencedirect.com/science/article/pii/S0893608019300784}}
+
+Physical reservoirs also have noise, drift, limited numbers of measurable nodes, and differences between devices. Digital-to-analog and analog-to-digital conversion may be needed to send inputs into the reservoir and read its states. These parts can use a large amount of the total energy. A simulation may also look good even when the real system is difficult to build or measure.
+\footnote{\url{https://www.sciencedirect.com/science/article/pii/S0893608019300784}}
+
+\subsection{Conclusion}
+
+Reservoir computing is a useful connection between machine learning and dynamical systems. ReservoirPy is a simple way to build a digital reservoir, while EchoTorch provides digital reservoir-computing models that work with PyTorch. PRCpy is mainly useful for processing reservoir-state data and training the final readout.
+
+Because physical reservoirs can use many different substrates, there is no single simulator for every type of physical reservoir. For a pure physical simulation, the best approach is to choose a simulator for the specific substrate. For example, a memristor-based electronic reservoir can be simulated as an analog circuit in Xyce, a SPICE-compatible circuit simulator that can also use custom device models.
+\footnote{\url{https://github.com/Xyce/Xyce}}
+
+The simulated voltages, currents, or other circuit states can then be treated as the reservoir states. These data can be processed and used to train a readout with PRCpy or a similar reservoir-computing workflow. In the same way, mechanical, optical, magnetic, and other reservoirs should first be simulated with tools designed for those particular physical systems.
+
+
+\section{Analog Computing}
+
+\subsection{Overview}
+
+Analog computing uses continuous physical quantities, such as voltages, to represent variables. In an electronic analog computer, a circuit is wired so that its voltages follow the same equations as the problem being studied. Initial conditions and parameters are set, and the output voltages show how the solution changes over time.
+
+Operational amplifiers can perform operations such as addition, subtraction, integration, and differentiation.
+\footnote{\url{https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Instrumental_Analysis_(LibreTexts)/03:_Operational_Amplifiers_in_Chemical_Instrumentation_(TBD)/3.04:_Application_of_Operational_Amplifiers_to_Mathematical_Operations}}
+Multipliers and other nonlinear elements can be added when a problem is nonlinear. This makes it possible to build circuits that represent many differential equations.
+
+Analog computing is a larger field that also includes mechanical, optical, and other continuous systems. Here I am mainly discussing electronic analog computers made from circuit components.
+
+\subsection{Killer Problem}
+
+Analog computers are especially useful for modeling dynamical systems. Ordinary differential equations can be built directly from integrators, adders, and multipliers. Partial differential equations can also be modeled after they are broken into a set of ordinary differential equations, although a large problem may need many circuit elements.
+
+The circuit does not solve the equation ``instantly,'' but all of its parts operate at the same time. This can make it useful for real-time simulation and control. Analog computing can also perform linear algebra, but large matrix operations may require too many components and connections.
+\footnote{\url{https://yipenghuang.com/wp-content/uploads/2018/09/mmi2017030030.pdf}}
+
+\subsection{Simulators}
+
+I looked at ngspice and LTspice, PyAnalog, and lucipy. They work at different levels.
+
+\paragraph{ngspice and LTspice.}
+ngspice and LTspice are SPICE circuit simulators. The user builds a circuit using a netlist or schematic, and the simulator calculates voltages and currents. These are the best tools here for checking a real electrical design, including component values, bandwidth, saturation, and device models.
+\footnote{\url{https://ngspice.sourceforge.io/index.html}}
+\footnote{\url{https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html}}
+
+SPICE does not automatically turn a differential equation into an analog-computer circuit. The circuit must be designed first. It is also important to remember that SPICE is still a digital simulation, so its speed does not show the speed of real analog hardware.
+
+\paragraph{PyAnalog.}
+PyAnalog works at a higher level. It represents an analog computer using elements such as integrators, summers, and multipliers. It can simulate these abstract circuits and can help translate a differential equation into a form that could be placed on an analog computer.
+\footnote{\url{https://anabrid.dev/docs/pyanalog/html/index.html}}
+
+PyAnalog is helpful for checking the mathematical circuit, but it is not as detailed as SPICE. A reasonable workflow is to use PyAnalog for the equation-level design and SPICE for the final electrical circuit.
+
+\paragraph{lucipy.}
+lucipy was made for Anabrid's LUCIDAC hybrid analog computer. It can configure the hardware, run programs, and collect data. It also includes an idealized circuit simulator and a LUCIDAC emulator.
+\footnote{\url{https://github.com/anabrid/lucipy}}
+
+The circuit simulator solves the mathematics of a LUCIDAC circuit. The emulator imitates the LUCIDAC device interface so that client code can be tested without the machine. Neither one fully represents the noise and other imperfections of real hardware. The lucipy repository was archived in 2026, so it may be better for existing examples than for a new long-term project.
+\footnote{\url{https://github.com/anabrid/lucipy}}
+
+You do not need to buy a LUCIDAC to install lucipy or use its built-in simulator and emulator.
+\footnote{\url{https://github.com/anabrid/lucipy}}
+However, to run the circuit on a real analog computer or collect real measurements, you need access to a LUCIDAC. This could mean buying one from Anabrid or using one owned by a laboratory. The emulator also has limitations, and some examples involving data acquisition still require a connection to the physical device.
+
+\subsection{Disadvantages}
+
+The biggest issue is converting between digital and analog data. DACs are needed to turn digital inputs into voltages, and ADCs are needed to measure the outputs digitally. These conversions can use enough time and energy to remove much of the benefit of analog computing.
+
+Analog systems also have noise, component tolerances, drift, limited precision, and voltage limits. Large problems need more physical computing elements and more connections, which makes scaling difficult.
+
+\subsection{Conclusion}
+
+Analog computing is promising for real-time dynamical systems. PyAnalog and lucipy can help check the mathematical setup, while SPICE can test a more realistic circuit. However, a software simulation cannot completely show the accuracy, speed, or energy use of actual analog hardware.
+
+
+\section{Reversible Computing}
+
+\subsection{Overview}
+
+Reversible computing is based on the idea that information should not be erased during a calculation. Landauer's principle says that erasing one bit has a minimum energy cost of
+\[
+E_{\min}=k_{\mathrm{B}}T\ln 2,
+\]
+where $k_{\mathrm{B}}$ is Boltzmann's constant and $T$ is temperature. Reversible logic tries to avoid this cost by using one-to-one operations, meaning that the input can always be recovered from the output.
+
+Normal AND and OR gates are not reversible because several inputs can produce the same output. Reversible circuits instead use gates such as CNOT, Toffoli, Fredkin, and Peres gates. For example, a CNOT gate keeps $A$ unchanged and flips $B$ when $A=1$:
+
+\begin{center}
+\begin{tabular}{cc|cc}
+\toprule
+\multicolumn{2}{c|}{Input} & \multicolumn{2}{c}{Output} \\
+$A$ & $B$ & $P$ & $Q$ \\
+\midrule
+0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 1 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 1 & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The Toffoli gate flips a target bit when two control bits are both one. The Fredkin gate swaps two bits when its control bit is one. The Peres gate combines operations that are useful in reversible arithmetic. These gates can be combined to represent general logic.
+
+\subsection{Killer Problem}
+
+Reversible computing does not have a special problem that normal digital computers cannot solve. Its main proposed benefit is saving energy by avoiding information loss. It is therefore more of a way to build computers than a new type of application.
+
+Quantum computing uses reversible, unitary gates, so reversible logic is important for quantum circuits. However, classical reversible computing does not include superposition or entanglement, so it is not the same as quantum computing.
+
+\subsection{Simulators}
+
+I tested RevKit and MQT SyReC. Both worked, but they are mainly circuit-synthesis tools rather than physical hardware simulators.
+
+\paragraph{RevKit.}
+RevKit works closer to the logic and gate level. The input can describe a truth table, reversible function, or logic network. RevKit then creates or improves a reversible circuit and can test whether the circuit gives the correct outputs.
+\footnote{\url{https://msoeken.github.io/revkit.html}}
+
+\paragraph{MQT SyReC.}
+MQT SyReC works at a higher level. The user writes a program in the SyReC hardware-description language, and the tool turns it into a reversible circuit. It includes options that trade the number of circuit lines against the number and cost of gates. The final circuit can also be simulated on normal bit inputs.
+\footnote{\url{https://mqt.readthedocs.io/projects/syrec/en/stable/index.html}}
+
+RevKit is more useful when starting from a logic function, while MQT SyReC is more useful when starting from a higher-level program. Their simulators check whether the logic works. They do not calculate the electrical behavior or actual energy use of a physical reversible computer.
+
+\subsection{Disadvantages}
+
+Reversible circuits often need extra temporary bits and extra gates so that no information is destroyed. These temporary values must later be removed by reversing part of the calculation. This can make a reversible circuit much larger than a normal circuit.
+
+Also, a logically reversible circuit does not automatically use almost no energy. The physical hardware must be designed to switch with very low loss. RevKit and MQT SyReC cannot show whether a real circuit will reach that goal.
+
+\subsection{Conclusion}
+
+Reversible computing is probably not the best direction if the goal is to find a unique killer problem. It is still useful for studying low-energy logic and quantum circuits. RevKit and MQT SyReC are good for designing and checking reversible logic, but a different type of simulator would be needed to study physical energy use.
+
+
+\section{Overall Assessment}
+
+Reservoir computing currently has the easiest path for software experiments because ReservoirPy provides a simple digital baseline, and many different dynamical systems can be tested as reservoirs. Analog computing is promising for real-time differential equations, but its advantages need to be tested with real hardware and data conversion included. Reversible computing is useful for energy-saving logic and quantum circuits, but it does not have a clear killer application of its own.
+
+\end{document}

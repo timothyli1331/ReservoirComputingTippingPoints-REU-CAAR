@@ -1,0 +1,21 @@
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+Saved comparison plot to ./results/overnight_memory_tests/no_accel_no_stretch/sac_vs_reset_each_step_seed_3.png
+Saved episode-level results to ./results/overnight_memory_tests/no_accel_no_stretch/sac_vs_reset_each_step_seed_3.csv
+Evaluation mode: dynamics=on, dynamics substeps=1, metric=finite-time boundary score, parameter walk=every 1 steps
+
+Quartic Duffing
+  SAC        return= 317.433, finite-time boundary score=0.0085
+  Reservoir-SAC return= 317.547, finite-time boundary score=0.0109
+
+Noisy Duffing / Langevin
+  SAC        return= 296.258, finite-time boundary score=0.0779
+  Reservoir-SAC return= 297.091, finite-time boundary score=0.0783
+
+Sextic potential
+  SAC        return= 316.129, finite-time boundary score=0.0127
+  Reservoir-SAC return= 315.930, finite-time boundary score=0.0152
+
+Smooth biquadratic
+  SAC        return= 313.294, finite-time boundary score=0.0151
+  Reservoir-SAC return= 315.666, finite-time boundary score=0.0148

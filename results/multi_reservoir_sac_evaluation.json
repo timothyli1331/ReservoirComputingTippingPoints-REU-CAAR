@@ -1,0 +1,57 @@
+{
+  "model_path": "models/multi_reservoir_sac.pt",
+  "metadata_path": "models/multi_reservoir_sac.json",
+  "episodes_per_system": 10,
+  "seed": 2000000,
+  "environment": {
+    "systems": [
+      "duffing",
+      "langevin",
+      "sextic",
+      "smooth_biquadratic"
+    ],
+    "include_system_id": false,
+    "parameter_walk": true,
+    "parameter_walk_interval": 1,
+    "evolve_dynamics": true,
+    "use_basin_mixing": true,
+    "boundary_update_interval": 10,
+    "boundary_resolution": 41,
+    "max_steps": 300
+  },
+  "metrics": {
+    "mean_return": 289.67094817768964,
+    "return_std": 18.683383925083312,
+    "worst_system_return": 272.05292582592375,
+    "system_return_std": 13.931186190133609,
+    "robust_score": 282.70535508262276,
+    "per_system": {
+      "duffing": {
+        "return": 305.53272769976144,
+        "return_std": 6.629779881856007,
+        "boundary_proximity": 0.9595185185185185,
+        "action_saturation": 0.0003333333333333334
+      },
+      "langevin": {
+        "return": 280.2345449058603,
+        "return_std": 13.252508099206649,
+        "boundary_proximity": 0.8755555555555554,
+        "action_saturation": 0.014500000000000002
+      },
+      "sextic": {
+        "return": 272.05292582592375,
+        "return_std": 18.00220481146171,
+        "boundary_proximity": 0.8446666666666669,
+        "action_saturation": 0.007833333333333335
+      },
+      "smooth_biquadratic": {
+        "return": 300.86359427921303,
+        "return_std": 8.735056647575565,
+        "boundary_proximity": 0.955185185185185,
+        "action_saturation": 0.006999999999999999
+      }
+    }
+  },
+  "plot_path": "results/multi_reservoir_sac_evaluation.png",
+  "gif_path": "results/multi_reservoir_sac_evaluation.gif"
+}

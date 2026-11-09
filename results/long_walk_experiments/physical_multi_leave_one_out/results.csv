@@ -1,0 +1,5 @@
+held_out,held_out_label,training_systems,model_path,one_step_rmse_x,one_step_rmse_v,free_run_horizon,free_run_rmse_x,free_run_rmse_v
+duffing,Quartic Duffing,"langevin,sextic,smooth_biquadratic",results/long_walk_experiments/physical_multi_leave_one_out/without_duffing.pkl,0.0001878912615429082,0.0059761237026799245,300,0.6224774742642917,0.31368881285221334
+langevin,Noisy Duffing / Langevin,"duffing,sextic,smooth_biquadratic",results/long_walk_experiments/physical_multi_leave_one_out/without_langevin.pkl,0.00017531320298024472,0.014954362070881057,300,0.42381577991833314,0.323376578348221
+sextic,Sextic potential,"duffing,langevin,smooth_biquadratic",results/long_walk_experiments/physical_multi_leave_one_out/without_sextic.pkl,0.00025047801585612045,0.008622191978093982,300,0.5674938523676843,0.34098379726587985
+smooth_biquadratic,Smooth biquadratic,"duffing,langevin,sextic",results/long_walk_experiments/physical_multi_leave_one_out/without_smooth_biquadratic.pkl,0.0006029031044619117,0.02623637745732579,300,0.8907361994474421,0.45707178292370904
